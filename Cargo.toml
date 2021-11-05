@@ -1,0 +1,29 @@
+cargo-features = ["strip"]
+
+[package]
+name = "mcli"
+version = "0.0.1"
+edition = "2021"
+default-run = "mcli"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/takashiidobe/mcli"
+documentation = "https://docs.rs/mcli"
+description = "A music player cli"
+rust = "1.56.0"
+
+[dependencies]
+rodio = "0.14.0"
+rustyline = "9.0.0"
+man = { version = "0.3.0", optional = true }
+
+[[bin]]
+name = "man"
+path = "src/build.rs"
+required-features = ["build_deps"]
+
+[features]
+build_deps = ["man"]
+
+[profile.release]
+strip = "symbols"
