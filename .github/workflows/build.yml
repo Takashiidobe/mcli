@@ -21,64 +21,64 @@ jobs:
         job:
           # Tier 1
           # DONE: Compiles
-          - { target: aarch64-unknown-linux-gnu           , os: ubuntu-20.04, use-cross: true }
+          - { target: aarch64-unknown-linux-gnu           , os: ubuntu-20.04, arch: aarch64 , use-cross: true  }
           # DONE: Compiles
-          - { target: i686-pc-windows-gnu                 , os: windows-2019                  }
+          - { target: i686-pc-windows-gnu                 , os: windows-2019, arch: i686    , use-cross: false }
           # DONE: Compiles
-          - { target: i686-unknown-linux-gnu              , os: ubuntu-20.04, use-cross: true }
+          - { target: i686-unknown-linux-gnu              , os: ubuntu-20.04, arch: i686    , use-cross: true  }
           # DONE: Compiles
-          - { target: i686-pc-windows-msvc                , os: windows-2019                  }
+          - { target: i686-pc-windows-msvc                , os: windows-2019, arch: i686    , use-cross: false }
           # DONE: Compiles
-          - { target: x86_64-apple-darwin                 , os: macos-10.15                   }
+          - { target: x86_64-apple-darwin                 , os: macos-10.15 , arch: x86_64  , use-cross: false }
           # DONE: Compiles
-          - { target: x86_64-pc-windows-gnu               , os: windows-2019                  }
+          - { target: x86_64-pc-windows-gnu               , os: windows-2019, arch: x86_64  , use-cross: false }
           # DONE: Compiles
-          - { target: x86_64-pc-windows-msvc              , os: windows-2019                  }
+          - { target: x86_64-pc-windows-msvc              , os: windows-2019, arch: x86_64  , use-cross: false }
           # DONE: Compiles
-          - { target: x86_64-unknown-linux-gnu            , os: ubuntu-20.04                  }
+          - { target: x86_64-unknown-linux-gnu            , os: ubuntu-20.04, arch: x86_64 ,                    }
           # Tier 2 with Host Tools
           # DONE: Compiles
-          - { target: aarch64-apple-darwin                , os: macos-11.0                    }
+          - { target: aarch64-apple-darwin                , os: macos-11.0   , arch: aarch64,                  }
           # DONE: Compiles
-          - { target: aarch64-pc-windows-msvc             , os: windows-2019                  }
+          - { target: aarch64-pc-windows-msvc             , os: windows-2019 , arch: aarch64,                  }
           # DONE: Compiles
-          - { target: aarch64-unknown-linux-musl          , os: ubuntu-20.04, use-cross: true }
+          - { target: aarch64-unknown-linux-musl          , os: ubuntu-20.04,  arch: aarch64, use-cross: true }
           # DONE: Compiles
-          - { target: arm-unknown-linux-gnueabi           , os: ubuntu-20.04, use-cross: true }
+          - { target: arm-unknown-linux-gnueabi           , os: ubuntu-20.04, arch: armv7, use-cross: true }
           # DONE: Compiles
-          - { target: arm-unknown-linux-gnueabihf         , os: ubuntu-20.04, use-cross: true }
+          - { target: arm-unknown-linux-gnueabihf         , os: ubuntu-20.04, arch: armv7, use-cross: true }
           # DONE: Compiles
-          - { target: armv7-unknown-linux-gnueabihf       , os: ubuntu-20.04, use-cross: true }
+          - { target: armv7-unknown-linux-gnueabihf       , os: ubuntu-20.04, arch: armv7, use-cross: true }
           # DONE: Compiles
-          - { target: mips-unknown-linux-gnu              , os: ubuntu-20.04, use-cross: true }
+          # - { target: mips-unknown-linux-gnu              , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: mips64-unknown-linux-gnuabi64       , os: ubuntu-20.04, use-cross: true }
+          # - { target: mips64-unknown-linux-gnuabi64       , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: mips64el-unknown-linux-gnuabi64     , os: ubuntu-20.04, use-cross: true }
+          # - { target: mips64el-unknown-linux-gnuabi64     , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: mipsel-unknown-linux-gnu            , os: ubuntu-20.04, use-cross: true }
+          # - { target: mipsel-unknown-linux-gnu            , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: powerpc-unknown-linux-gnu           , os: ubuntu-20.04, use-cross: true }
+          # - { target: powerpc-unknown-linux-gnu           , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: powerpc64-unknown-linux-gnu         , os: ubuntu-20.04, use-cross: true }
+          # - { target: powerpc64-unknown-linux-gnu         , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: powerpc64le-unknown-linux-gnu       , os: ubuntu-20.04, use-cross: true }
+          - { target: powerpc64le-unknown-linux-gnu       , os: ubuntu-20.04, arch: powerpc64le, use-cross: true }
           # DONE: Compiles
-          - { target: riscv64gc-unknown-linux-gnu	        , os: ubuntu-20.04, use-cross: true }
+          # - { target: riscv64gc-unknown-linux-gnu	        , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: s390x-unknown-linux-gnu	            , os: ubuntu-20.04, use-cross: true }
+          - { target: s390x-unknown-linux-gnu	            , os: ubuntu-20.04, arch: s390x, use-cross: true }
           # DONE: Compiles
-          - { target: x86_64-unknown-freebsd              , os: ubuntu-20.04, use-cross: true }
+          - { target: x86_64-unknown-freebsd              , os: ubuntu-20.04, arch: x86_64, use-cross: true }
           # DONE: Compiles with no_std
           # - { target: x86_64-unknown-illumos              , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: arm-unknown-linux-musleabihf        , os: ubuntu-20.04, use-cross: true }
+          # - { target: arm-unknown-linux-musleabihf        , os: ubuntu-20.04, arch: arm, use-cross: true }
           # DONE: Compiles
-          - { target: i686-unknown-linux-musl             , os: ubuntu-20.04, use-cross: true }
+          # - { target: i686-unknown-linux-musl             , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: x86_64-unknown-linux-musl           , os: ubuntu-20.04, use-cross: true }
+          # - { target: x86_64-unknown-linux-musl           , os: ubuntu-20.04, arch: x86_64, use-cross: true }
           # DONE: Compiles
-          - { target: x86_64-unknown-netbsd               , os: ubuntu-20.04, use-cross: true }
+          # - { target: x86_64-unknown-netbsd               , os: ubuntu-20.04, arch: x86_64, use-cross: true }
           # Tier 2
           # DONE: Compiles
           # - { target: aarch64-apple-ios                   , os: macos-11                      }
@@ -87,7 +87,7 @@ jobs:
           # TODO: needs cc
           # - { target: aarch64-fuchsia                     , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: aarch64-linux-android               , os: ubuntu-20.04, use-cross: true }
+          # - { target: aarch64-linux-android               , os: ubuntu-20.04, arch: aarch64, use-cross: true }
           # TODO: needs cc
           # - { target: aarch64-unknown-none-softfloat      , os: ubuntu-20.04, use-cross: true }
           # TODO: needs cc
@@ -95,17 +95,17 @@ jobs:
           # DONE: Compiles
           # - { target: arm-linux-androideabi               , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: arm-unknown-linux-musleabi          , os: ubuntu-20.04, use-cross: true }
+          # - { target: arm-unknown-linux-musleabi          , os: ubuntu-20.04, arch: arm, use-cross: true }
           # DONE: Compiles
-          - { target: arm-unknown-linux-musleabihf        , os: ubuntu-20.04, use-cross: true }
+          # - { target: arm-unknown-linux-musleabihf        , os: ubuntu-20.04, arch: arm, use-cross: true }
           # TODO: needs cc
           # - { target: armebv7r-none-eabi                  , os: ubuntu-20.04, use-cross: true }
           # TODO: needs cc
           # - { target: armebv7r-none-eabihf                , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: armv5te-unknown-linux-gnueabi       , os: ubuntu-20.04, use-cross: true }
+          # - { target: armv5te-unknown-linux-gnueabi       , os: ubuntu-20.04, arch: armv5te, use-cross: true }
           # DONE: Compiles
-          - { target: armv5te-unknown-linux-musleabi      , os: ubuntu-20.04, use-cross: true }
+          # - { target: armv5te-unknown-linux-musleabi      , os: ubuntu-20.04, arch: armv5te, use-cross: true }
           # DONE: Compiles
           # - { target: armv7-linux-androideabi             , os: ubuntu-20.04, use-cross: true }
           # TODO: needs docker image for cross
@@ -113,7 +113,7 @@ jobs:
           # TODO: needs docker image for cross
           # - { target: armv7-unknown-linux-musleabi        , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: armv7-unknown-linux-musleabihf      , os: ubuntu-20.04, use-cross: true }
+          # - { target: armv7-unknown-linux-musleabihf      , os: ubuntu-20.04, arch: armv7, use-cross: true }
           # TODO: needs cc
           # - { target: armv7a-none-eabi                    , os: ubuntu-20.04, use-cross: true }
           # TODO: needs cc
@@ -125,23 +125,23 @@ jobs:
           # TODO: needs linker
           # - { target: i586-pc-windows-msvc                , os: windows-2019                  }
           # DONE: Compiles
-          - { target: i586-unknown-linux-gnu              , os: ubuntu-20.04, use-cross: true }
+          # - { target: i586-unknown-linux-gnu              , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: i586-unknown-linux-musl             , os: ubuntu-20.04, use-cross: true }
+          # - { target: i586-unknown-linux-musl             , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: i686-linux-android                  , os: ubuntu-20.04, use-cross: true }
+          # - { target: i686-linux-android                  , os: ubuntu-20.04, use-cross: true }
           # TODO: needs cc
           # - { target: i686-unknown-freebsd                , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: i686-unknown-linux-musl             , os: ubuntu-20.04, use-cross: true }
+          # - { target: i686-unknown-linux-musl             , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: mips-unknown-linux-musl             , os: ubuntu-20.04, use-cross: true }
+          # - { target: mips-unknown-linux-musl             , os: ubuntu-20.04, use-cross: true }
           # TODO: needs docker image
           # - { target: mips64-unknown-linux-muslabi64      , os: ubuntu-20.04, use-cross: true }
           # TODO: needs docker image
           # - { target: mips64el-unknown-linux-muslabi64    , os: ubuntu-20.04, use-cross: true }
           # DONE: Compiles
-          - { target: mipsel-unknown-linux-musl           , os: ubuntu-20.04, use-cross: true }
+          # - { target: mipsel-unknown-linux-musl           , os: ubuntu-20.04, use-cross: true }
           # DONE: Only emits Assembly
           # - { target: nvptx64-nvidia-cuda                 , os: ubuntu-20.04, use-cross: true }
           # TODO: investigate
@@ -189,7 +189,7 @@ jobs:
           # TODO: investigate
           # - { target: x86_64-fuchsia                      , os: ubuntu-20.04                  }
           # DONE: Compiles
-          - { target: x86_64-linux-android                , os: ubuntu-20.04, use-cross: true }
+          # - { target: x86_64-linux-android                , os: ubuntu-20.04, arch: x86_64, use-cross: true }
           # TODO: missing -lsocket -lposix4 -lmem
           # - { target: x86_64-pc-solaris                   , os: ubuntu-20.04, use-cross: true }
           # TODO: investigate
@@ -244,7 +244,7 @@ jobs:
           # TODO: investigate
           # - { target: i686-apple-darwin                   , os: macos-10.15                   }
           # DONE: Compiles
-          - { target: i686-pc-windows-msvc                , os: windows-2019                  }
+          # - { target: i686-pc-windows-msvc                , os: windows-2019                  }
           # TODO: investigate
           # - { target: i686-unknown-haiku                  , os: ubuntu-20.04, use-cross: true }
           # TODO: investigate
@@ -371,114 +371,83 @@ jobs:
           target
         key: ${{ matrix.job.target }}-${{ matrix.job.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
-    - name: Install prerequisites
-      shell: bash
-      run: |
-        sudo apt-get -y update ; sudo apt-get -y install apt-get install libasound2-dev
-        case ${{ matrix.job.target }} in
-          arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;
-          aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;
-          aarch64-unknown-linux-musl) sudo apt-get -y update ; sudo apt-get -y install musl-dev ;;
-          i686-pc-windows-gnu) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
-          i686-pc-windows-msvc) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
-          i586-pc-windows-msvc) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
-        esac
-
-    - name: Extract crate information
-      shell: bash
-      run: |
-        echo "PROJECT_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
-        echo "PROJECT_VERSION=$(sed -n 's/^version = "\(.*\)"/\1/p' Cargo.toml | head -n1)" >> $GITHUB_ENV
-        echo "PROJECT_MAINTAINER=$(sed -n 's/^authors = \["\(.*\)"\]/\1/p' Cargo.toml)" >> $GITHUB_ENV
-        echo "PROJECT_HOMEPAGE=$(sed -n 's/^homepage = "\(.*\)"/\1/p' Cargo.toml)" >> $GITHUB_ENV
-
-    - name: Install Rust toolchain
-      shell: bash
-      run: |
-        rustup default nightly
-        rustup target add ${{ matrix.job.target }}
-
-    - name: Show version information (Rust, cargo, GCC)
-      shell: bash
-      run: |
-        gcc --version || true
-        rustup -V
-        rustup toolchain list
-        rustup default
-        cargo -V
-        rustc -V
-
-    - name: Show rustc --version --verbose
-      shell: bash
-      run: rustc --version --verbose
-
-    - name: Build
-      uses: actions-rs/cargo@v1
+    - name: Build artifact
+      uses: uraimo/run-on-arch-action@v2.0.5
+      id: build
       with:
-        use-cross: ${{ matrix.job.use-cross }}
-        command: build
-        args: --locked --release --target=${{ matrix.job.target }}
+        arch: ${{ matrix.job.arch }}
+        distro: ubuntu20.04
+        run: |
+          case ${{ matrix.job.target }} in
+            *-linux-*) sudo apt-get -y update ; sudo apt-get -y install libasound2-dev ;;
+            arm-unknown-linux-gnu*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;
+            *-pc-windows-*) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
+          esac
+          echo "PROJECT_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
+          echo "PROJECT_VERSION=$(sed -n 's/^version = "\(.*\)"/\1/p' Cargo.toml | head -n1)" >> $GITHUB_ENV
+          rustup default nightly
+          rustup target add ${{ matrix.job.target }}
+          gcc --version || true
+          rustup -V
+          rustup toolchain list
+          rustup default
+          cargo -V
+          rustc -V
+          rustc --version --verbose
+          cargo build --locked --release --target=${{ matrix.job.target }}
 
-    - name: Strip debug information from executable
-      id: strip
-      shell: bash
-      run: |
-        # Figure out suffix of binary
-        EXE_suffix=""
-        case ${{ matrix.job.target }} in
-          *-pc-windows-*) EXE_suffix=".exe" ;;
-        esac;
+          # Figure out suffix of binary
+          EXE_suffix=""
+          case ${{ matrix.job.target }} in
+            *-pc-windows-*) EXE_suffix=".exe" ;;
+          esac;
 
-        # Setup paths
-        BIN_DIR="${{ env.CICD_INTERMEDIATES_DIR }}/stripped-release-bin/"
-        mkdir -p "${BIN_DIR}"
-        BIN_NAME="${{ env.PROJECT_NAME }}${EXE_suffix}"
-        BIN_PATH="${BIN_DIR}/${BIN_NAME}"
-        TRIPLET_NAME="${{ matrix.job.target }}"
+          # Setup paths
+          BIN_DIR="${{ env.CICD_INTERMEDIATES_DIR }}/stripped-release-bin/"
+          mkdir -p "${BIN_DIR}"
+          BIN_NAME="${{ env.PROJECT_NAME }}${EXE_suffix}"
+          BIN_PATH="${BIN_DIR}/${BIN_NAME}"
+          TRIPLET_NAME="${{ matrix.job.target }}"
 
-        # Copy the release build binary to the result location
-        cp "target/$TRIPLET_NAME/release/${BIN_NAME}" "${BIN_DIR}"
+          # Copy the release build binary to the result location
+          cp "target/$TRIPLET_NAME/release/${BIN_NAME}" "${BIN_DIR}"
 
-        # Let subsequent steps know where to find the (stripped) bin
-        echo ::set-output name=BIN_PATH::${BIN_PATH}
-        echo ::set-output name=BIN_NAME::${BIN_NAME}
+          # Let subsequent steps know where to find the (stripped) bin
+          echo BIN_PATH=${BIN_PATH} >> $GITHUB_ENV
+          echo BIN_NAME=${BIN_NAME} >> $GITHUB_ENV
 
-    - name: Create tarball
-      id: package
-      shell: bash
-      run: |
-        PKG_suffix=".tar.gz" ;
-        case ${{ matrix.job.target }} in
-          *-pc-windows-*) PKG_suffix=".zip" ;;
-        esac;
-        PKG_BASENAME=${PROJECT_NAME}-v${PROJECT_VERSION}-${{ matrix.job.target }}
-        PKG_NAME=${PKG_BASENAME}${PKG_suffix}
-        echo ::set-output name=PKG_NAME::${PKG_NAME}
+          PKG_suffix=".tar.gz" ;
+          case ${{ matrix.job.target }} in
+            *-pc-windows-*) PKG_suffix=".zip" ;;
+          esac;
+          PKG_BASENAME=${PROJECT_NAME}-v${PROJECT_VERSION}-${{ matrix.job.target }}
+          PKG_NAME=${PKG_BASENAME}${PKG_suffix}
+          echo ::set-output name=PKG_NAME::${PKG_NAME}
 
-        PKG_STAGING="${{ env.CICD_INTERMEDIATES_DIR }}/package"
-        ARCHIVE_DIR="${PKG_STAGING}/${PKG_BASENAME}/"
-        mkdir -p "${ARCHIVE_DIR}"
-        mkdir -p "${ARCHIVE_DIR}/autocomplete"
+          PKG_STAGING="${{ env.CICD_INTERMEDIATES_DIR }}/package"
+          ARCHIVE_DIR="${PKG_STAGING}/${PKG_BASENAME}/"
+          mkdir -p "${ARCHIVE_DIR}"
+          mkdir -p "${ARCHIVE_DIR}/autocomplete"
 
-        # Binary
-        cp "${{ steps.strip.outputs.BIN_PATH }}" "$ARCHIVE_DIR"
+          # Binary
+          cp "${{ steps.strip.outputs.BIN_PATH }}" "$ARCHIVE_DIR"
 
-        # base compressed package
-        pushd "${PKG_STAGING}/" >/dev/null
-        case ${{ matrix.job.target }} in
-          *-pc-windows-*) 7z -y a "${PKG_NAME}" "${PKG_BASENAME}"/* | tail -2 ;;
-          *) tar czf "${PKG_NAME}" "${PKG_BASENAME}"/* ;;
-        esac;
-        popd >/dev/null
+          # base compressed package
+          pushd "${PKG_STAGING}/" >/dev/null
+          case ${{ matrix.job.target }} in
+            *-pc-windows-*) 7z -y a "${PKG_NAME}" "${PKG_BASENAME}"/* | tail -2 ;;
+            *) tar czf "${PKG_NAME}" "${PKG_BASENAME}"/* ;;
+          esac;
+          popd >/dev/null
 
-        # Let subsequent steps know where to find the compressed package
-        echo ::set-output name=PKG_PATH::"${PKG_STAGING}/${PKG_NAME}"
+          # Let subsequent steps know where to find the compressed package
+          echo PKG_PATH="${PKG_STAGING}/${PKG_NAME}" >> $GITHUB_ENV
 
     - name: "Artifact upload: tarball"
       uses: actions/upload-artifact@master
       with:
-        name: ${{ steps.package.outputs.PKG_NAME }}
-        path: ${{ steps.package.outputs.PKG_PATH }}
+        name: ${{ env.PKG_NAME }}
+        path: ${{ env.PKG_PATH }}
 
     - name: Check for release
       id: is-release
@@ -492,6 +461,6 @@ jobs:
       if: steps.is-release.outputs.IS_RELEASE
       with:
         files: |
-          ${{ steps.package.outputs.PKG_PATH }}
+            ${{ env.PKG_PATH }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
