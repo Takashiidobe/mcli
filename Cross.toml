@@ -21,3 +21,6 @@ image = "takashiidobe/mcli-armv7-unknown-linux-gnueabihf-0.2.1"
 
 [target.arm-unknown-linux-gnueabi]
 image = "takashiidobe/mcli-arm-unknown-linux-gnueabi-0.2.1"
+
+[target.i686-unknown-linux-musl]
+image = "takashiidobe/mcli-i686-unknown-linux-musl-0.2.1"
