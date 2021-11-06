@@ -1,7 +1,5 @@
 FROM rustembedded/cross:powerpc64le-unknown-linux-gnu-0.2.1
 
-RUN dpkg --add-architecture ppc64el && \
-  apt-get update && \
-  apt-get install --assume-yes libasound2-dev:ppc64el
+RUN apt-get install --assume-yes libasound2-dev
 
-ENV PKG_CONFIG_PATH=/usr/lib/ppc64el-linux-gnu/pkgconfig/
+ENV PKG_CONFIG_PATH=/usr/lib/
