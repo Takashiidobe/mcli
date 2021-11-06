@@ -2,8 +2,8 @@ name: Create docker images
 
 on:
   push:
-    # paths:
-    #   - 'dockerfiles/**'
+    paths:
+      - 'dockerfiles/**'
 
 jobs:
   docker:
