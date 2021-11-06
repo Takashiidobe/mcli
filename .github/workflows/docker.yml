@@ -35,5 +35,4 @@ jobs:
           context: dockerfiles/${{ matrix.target }}/Dockerfile
           push: true 
           tags: |
-            ghcr.io/takashiidobe/mcli:${{ matrix.target }}:${{ github.sha }}
             ghcr.io/takashiidobe/mcli:${{ matrix.target }}:latest
