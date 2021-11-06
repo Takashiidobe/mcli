@@ -1,20 +1,5 @@
-[target.x86_64-unknown-freebsd]
-image = "rustembedded/cross:x86_64-unknown-freebsd"
-
-[target.powerpc64-unknown-linux-gnu]
-image = "rustembedded/cross:powerpc64-unknown-linux-gnu"
-
-[target.x86_64-unknown-illumos]
-image = "rustembedded/cross:x86_64-sun-solaris"
-
-[target.armv7-unknown-linux-gnueabi]
-image = "rustembedded/cross:armv7-unknown-linux-gnueabi"
-
-[target.armv7-unknown-linux-musleabi]
-image = "rustembedded/cross:armv7-unknown-linux-musleabi"
-
-[target.x86_64-sun-solaris]
-image = "rustembedded/cross:x86_64-sun-solaris"
-
 [target.aarch64-unknown-linux-gnu]
 image = "takashiidobe/mcli-aarch64-unknown-linux-gnu-0.2.1"
+
+[target.i686-unknown-linux-gnu]
+image = "takashiidobe/mcli-i686-unknown-linux-gnu-0.2.1"
