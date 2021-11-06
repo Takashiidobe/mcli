@@ -1,0 +1,42 @@
+name: Create docker images 
+
+on:
+  push:
+    paths:
+      - 'dockerfiles/**'
+
+jobs:
+  docker:
+    strategy:
+      matrix:
+        target: [ 
+          aarch64-unknown-linux-gnu,
+          aarch64-unknown-linux-musl,
+          arm-unknown-linux-gnueabi,
+          arm-unknown-linux-gnueabihf,
+          armv7-unknown-linux-gnueabihf,
+          i686-unknown-linux-gnu,
+          powerpc64le-unknown-linux-gnu,
+          s390x-unknown-linux-gnu
+        ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: lowercase repo
+        run: |
+          echo "REPO_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+      - name: Checkout Code
+        uses: actions/checkout@v1
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: takashiidobe 
+          password: ${{ secrets.GHCR_REGISTRY_TOKEN }}
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: dockerfiles/${{ matrix.target }}/Dockerfile
+          push: true 
+          tags: |
+            ghcr.io/${REPO_NAME}:${{ matrix.target }}:${{ GITHUB_SHA }}
+            ghcr.io/${REPO_NAME}:${{ matrix.target }}:latest

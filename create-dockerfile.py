@@ -63,7 +63,3 @@ with open("Cross.toml", "a+") as f:
 
 with open(f"dockerfiles/{rust_triplet}/Dockerfile", "w+") as f:
     f.write(linux_dockerfile)
-
-run(["docker", "build", "-t", f"takashiidobe/mcli-{rust_triplet}-{CROSS_VERSION}", f"dockerfiles/{rust_triplet}/"])
-
-run(["docker", "push", f"takashiidobe/mcli-{rust_triplet}-{CROSS_VERSION}"])
