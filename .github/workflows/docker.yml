@@ -38,5 +38,5 @@ jobs:
           context: dockerfiles/${{ matrix.target }}/Dockerfile
           push: true 
           tags: |
-            ghcr.io/${REPO_NAME}:${{ matrix.target }}:${{ GITHUB_SHA }}
+            ghcr.io/${REPO_NAME}:${{ matrix.target }}:${{ github.sha }}
             ghcr.io/${REPO_NAME}:${{ matrix.target }}:latest
