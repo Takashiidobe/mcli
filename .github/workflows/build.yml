@@ -393,11 +393,6 @@ jobs:
           arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;
           aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;
           aarch64-unknown-linux-musl) sudo apt-get -y update ; sudo apt-get -y install musl-dev ;;
-          x86_64-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install libasound2-dev ;;
-          armv7-unknown-linux-*) sudo dpkg --add-architecture armhf ; sudo apt-get update ; sudo apt-get install libasound2-dev:armhf ;;
-          aarch64-unknown-linux-*) sudo dpkg --add-architecture arm64 ; sudo apt-get update ; sudo apt-get install libasound2-dev:arm64 ;;
-          powerpc64le-unknown-linux-*) sudo dpkg --add-architecture ppc64el ; sudo apt-get update ; sudo apt-get install libasound2-dev:ppc64el ;;
-          s390x-unknown-linux-*) sudo dpkg --add-architecture s390x ; sudo apt-get update ; sudo apt-get install libasound2-dev:s390x ;;
           i686-pc-windows-gnu) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
           i686-pc-windows-msvc) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
           i586-pc-windows-msvc) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
