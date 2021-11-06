@@ -2,8 +2,8 @@ name: Create docker images
 
 on:
   push:
-    paths:
-      - 'dockerfiles/**'
+    # paths:
+    #   - 'dockerfiles/**'
 
 jobs:
   docker:
@@ -21,9 +21,6 @@ jobs:
         ]
     runs-on: ubuntu-latest
     steps:
-      - name: lowercase repo
-        run: |
-          echo "REPO_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
       - name: Checkout Code
         uses: actions/checkout@v1
       - name: Login to GitHub Container Registry
@@ -38,5 +35,5 @@ jobs:
           context: dockerfiles/${{ matrix.target }}/Dockerfile
           push: true 
           tags: |
-            ghcr.io/${REPO_NAME}:${{ matrix.target }}:${{ github.sha }}
-            ghcr.io/${REPO_NAME}:${{ matrix.target }}:latest
+            ghcr.io/takashiidobe/mcli:${{ matrix.target }}:${{ github.sha }}
+            ghcr.io/takashiidobe/mcli:${{ matrix.target }}:latest
