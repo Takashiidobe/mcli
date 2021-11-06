@@ -3,3 +3,21 @@ image = "takashiidobe/mcli-aarch64-unknown-linux-gnu-0.2.1"
 
 [target.i686-unknown-linux-gnu]
 image = "takashiidobe/mcli-i686-unknown-linux-gnu-0.2.1"
+
+[target.powerpc64le-unknown-linux-gnu]
+image = "takashiidobe/mcli-powerpc64le-unknown-linux-gnu-0.2.1"
+
+[target.arm-unknown-linux-gnueabihf]
+image = "takashiidobe/mcli-arm-unknown-linux-gnueabihf-0.2.1"
+
+[target.aarch64-unknown-linux-musl]
+image = "takashiidobe/mcli-aarch64-unknown-linux-musl-0.2.1"
+
+[target.s390x-unknown-linux-gnu]
+image = "takashiidobe/mcli-s390x-unknown-linux-gnu-0.2.1"
+
+[target.armv7-unknown-linux-gnueabihf]
+image = "takashiidobe/mcli-armv7-unknown-linux-gnueabihf-0.2.1"
+
+[target.arm-unknown-linux-gnueabi]
+image = "takashiidobe/mcli-arm-unknown-linux-gnueabi-0.2.1"
