@@ -384,6 +384,7 @@ jobs:
       with:
         profile: minimal
         toolchain: stable
+        target: ${{ matrix.job.target }}
 
     - name: Install prerequisites
       shell: bash
