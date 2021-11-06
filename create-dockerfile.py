@@ -53,7 +53,7 @@ ENV PKG_CONFIG_PATH=/usr/lib/{ubuntu_arch}-linux-gnu/pkgconfig/"""
 
 cross_file = f"""
 [target.{rust_triplet}]
-image = "takashiidobe/{REPO_NAME}-{rust_triplet}-{CROSS_VERSION}"
+image = "ghcr.io/takashiidobe/{REPO_NAME}:{rust_triplet}"
 """
 
 run(['mkdir', '-p', f'dockerfiles/{rust_triplet}'])
