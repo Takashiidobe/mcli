@@ -393,37 +393,51 @@ jobs:
           arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;
           aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;
           aarch64-unknown-linux-musl) sudo apt-get -y update ; sudo apt-get -y install musl-dev ;;
-          x86_64-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install libasound2-dev ;;
-          armv7-unknown-linux-*) sudo dpkg --add-architecture armhf ; sudo apt-get update ; sudo apt-get install libasound2-dev:armhf ;;
-          aarch64-unknown-linux-*) sudo dpkg --add-architecture arm64 ; sudo apt-get update ; sudo apt-get install libasound2-dev:arm64 ;;
-          powerpc64le-unknown-linux-*) sudo dpkg --add-architecture ppc64el ; sudo apt-get update ; sudo apt-get install libasound2-dev:ppc64el ;;
-          s390x-unknown-linux-*) sudo dpkg --add-architecture s390x ; sudo apt-get update ; sudo apt-get install libasound2-dev:s390x ;;
+          *-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install libasound2-dev ;;
           i686-pc-windows-gnu) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
           i686-pc-windows-msvc) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
           i586-pc-windows-msvc) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
         esac
 
-
-    - name: Show version information (Rust, cargo, GCC)
-      shell: bash
-      run: |
-        gcc --version || true
-        rustup -V
-        rustup toolchain list
-        rustup default
-        cargo -V
-        rustc -V
-
-    - name: Show rustc --version --verbose
-      shell: bash
-      run: rustc --version --verbose
-
-    - name: Build
-      uses: actions-rs/cargo@v1
+    - uses: uraimo/run-on-arch-action@v2.0.5
+      name: Build artifact
+      id: build
       with:
-        use-cross: ${{ matrix.job.use-cross }}
-        command: build
-        args: --locked --release --target=${{ matrix.job.target }}
+        arch: ${{ matrix.job.arch }}
+        distro: ubuntu20.04
+
+        githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+        # Create an artifacts directory
+        setup: |
+          mkdir -p "${PWD}/artifacts"
+
+        # Mount the artifacts directory as /artifacts in the container
+        dockerRunArgs: |
+          --volume "${PWD}/artifacts:/artifacts"
+
+        # Pass some environment variables to the container
+        env: | # YAML, but pipe character is necessary
+          artifact_name: git-${{ matrix.distro }}_${{ matrix.arch }}
+
+        # The shell to run commands with in the container
+        shell: /bin/sh
+
+        install: |
+          case ${{ matrix.job.target }} in
+            arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;
+            aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;
+            *-unknown-linux-musl) sudo apt-get -y update ; sudo apt-get -y install musl-dev ;;
+            *-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install libasound2-dev ;;
+            i686-pc-windows-gnu) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
+            i686-pc-windows-msvc) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
+            i586-pc-windows-msvc) echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH ;;
+          esac
+
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+          rustup install --profile minimal
+          rustup target add "${{ matrix.job.target }}"
+          cargo build --locked --release
 
     - name: Strip debug information from executable
       id: strip
